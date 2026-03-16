@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11603.235 stable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailManipulation.Lib", "MailManipulation.Lib\MailManipulation.Lib.csproj", "{1BFDC1E8-6D9B-014B-6E58-6046AA2470E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailManipulation.Console", "MailManipulation.Console\MailManipulation.Console.csproj", "{31EEB068-EAEB-4BA0-95D3-65024F71206E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BFDC1E8-6D9B-014B-6E58-6046AA2470E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BFDC1E8-6D9B-014B-6E58-6046AA2470E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BFDC1E8-6D9B-014B-6E58-6046AA2470E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BFDC1E8-6D9B-014B-6E58-6046AA2470E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31EEB068-EAEB-4BA0-95D3-65024F71206E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31EEB068-EAEB-4BA0-95D3-65024F71206E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31EEB068-EAEB-4BA0-95D3-65024F71206E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31EEB068-EAEB-4BA0-95D3-65024F71206E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F3A7CA3-3176-473E-86C4-97755E621F88}
+	EndGlobalSection
+EndGlobal
