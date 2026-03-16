@@ -13,5 +13,5 @@ public class MailManipulationConfiguration
     public int? ImapPort { get; set; }
     public String? ImapNamespace { get; set; }
     public String? ImapFolder { get; set; }
-    
+
 }

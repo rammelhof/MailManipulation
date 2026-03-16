@@ -3,6 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 using MailKit;
 using MailKit.Net.Imap;
 using Serilog;
+using Serilog.Events;
 
 namespace MailManipulation.Lib;
 
@@ -59,15 +60,29 @@ public class MailManipulation
 
             _logger.Information("Total messages: {0} in {1}", folder.Count, _configuration.ImapFolder);
 
+            //var query = MailKit.Search.SearchQuery.SentSince(DateTime.Today.AddDays(-365));
             var query = MailKit.Search.SearchQuery.All;
             var uids = folder.Search(query);
 
             _logger.Information("Messages after filter: {0} in {1}", uids.Count, _configuration.ImapFolder);
 
-            foreach (var messageId in uids)
+
+            var summaries = folder.Fetch(uids, MessageSummaryItems.Full | MessageSummaryItems.SaveDate | MessageSummaryItems.Flags | MessageSummaryItems.UniqueId | MessageSummaryItems.BodyStructure);
+            foreach (var messageSummary in summaries)
             {
-                var message = folder.GetMessage(messageId);
-                _logger.Information($"{message.Date} {message.Subject}");
+                _logger.Information($"{messageSummary.Date} {messageSummary.InternalDate} {messageSummary.Envelope.Subject}");
+
+                var message = folder.GetMessage(messageSummary.UniqueId);
+                //_logger.Information($"{message.Date} {message.Subject}");
+
+                // replace message with date
+                if (messageSummary != null
+                    && messageSummary.Flags != null
+                    && messageSummary.InternalDate != message.Date
+                    )
+                {
+                    folder.Replace(messageSummary.UniqueId, message, messageSummary.Flags.Value, message.Date);
+                }
             }
 
             imapClient.Disconnect(true);
