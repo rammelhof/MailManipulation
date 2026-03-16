@@ -27,12 +27,5 @@ var mailManipulationConfigurationSection = configuration.GetSection("MailManipul
 var mailManipulationConfiguration = mailManipulationConfigurationSection.Get<MailManipulationConfiguration>();
 
 
-
-
-//var mailManipulationConfiguration = configuration.GetValue<MailManipulationConfiguration>("MailForwarderConfiguration");
-//var mailManipulationConfiguration = configuration.Get<MailManipulationConfiguration>(o =>
-//{
-//    o.ErrorOnUnknownConfiguration = true;
-//});
 var mailManipulation = new MailManipulation.Lib.MailManipulation(Log.Logger, mailManipulationConfiguration);
 mailManipulation.ProcessMails();

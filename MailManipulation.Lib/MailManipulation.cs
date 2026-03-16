@@ -59,8 +59,7 @@ public class MailManipulation
 
             _logger.Information("Total messages: {0} in {1}", folder.Count, _configuration.ImapFolder);
 
-            var query = MailKit.Search.SearchQuery.SaveDateSupported.And(MailKit.Search.SearchQuery.SubjectContains("Landtmann"));
-
+            var query = MailKit.Search.SearchQuery.All;
             var uids = folder.Search(query);
 
             _logger.Information("Messages after filter: {0} in {1}", uids.Count, _configuration.ImapFolder);
@@ -69,13 +68,6 @@ public class MailManipulation
             {
                 var message = folder.GetMessage(messageId);
                 _logger.Information($"{message.Date} {message.Subject}");
-
-                // message.Date
-                //foreach (var part in message.BodyParts)
-                //{
-                //    _logger.Information($"{part}");
-                //}
-
             }
 
             imapClient.Disconnect(true);
